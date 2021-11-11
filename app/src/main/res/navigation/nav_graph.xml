@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/LoginCreateFragment">
+
+    <fragment
+        android:id="@+id/LoginCreateFragment"
+        android:name="com.example.mobilemandatoryassignment.view.LoginCreateFragment"
+        android:label="@string/logincreate_fragment_label"
+        tools:layout="@layout/fragment_logincreate">
+        <action
+            android:id="@+id/action_LoginCreateFragment_to_loggedInFragment"
+            app:destination="@id/LoggedInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/Feed"
+        android:name="com.example.mobilemandatoryassignment.view.Feed"
+        android:label="@string/feed_fragment_label"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_Feed_to_singleMessage"
+            app:destination="@id/SingleMessage" />
+        <action
+            android:id="@+id/action_Feed_to_LoginCreateFragment"
+            app:destination="@id/LoginCreateFragment" />
+        <action
+            android:id="@+id/action_Feed_to_LoggedInFragment"
+            app:destination="@id/LoggedInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LoggedInFragment"
+        android:name="com.example.mobilemandatoryassignment.view.LoggedInFragment"
+        android:label="@string/loggedin_fragment_label"
+        tools:layout="@layout/fragment_loggedin" >
+        <action
+            android:id="@+id/action_LoggedInFragment_to_Feed"
+            app:destination="@id/Feed" />
+        <action
+            android:id="@+id/action_LoggedInFragment_to_LoginCreateFragment"
+            app:destination="@id/LoginCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SingleMessage"
+        android:name="com.example.mobilemandatoryassignment.view.SingleMessage"
+        android:label="@string/singlemessage_fragment_label"
+        tools:layout="@layout/fragment_singlemessage" >
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_SingleMessage_to_comments"
+            app:destination="@id/comments" />
+        <action
+            android:id="@+id/action_SingleMessage_to_LoginCreateFragment"
+            app:destination="@id/LoginCreateFragment" />
+        <action
+            android:id="@+id/action_SingleMessage_to_LoggedInFragment"
+            app:destination="@id/LoggedInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comments"
+        android:name="com.example.mobilemandatoryassignment.view.Comments"
+        android:label="@string/comments_fragment_label"
+        tools:layout="@layout/fragment_comments">
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_comments_to_LoginCreateFragment"
+            app:destination="@id/LoginCreateFragment" />
+        <action
+            android:id="@+id/action_comments_to_LoggedInFragment"
+            app:destination="@id/LoggedInFragment" />
+    </fragment>
+</navigation>
