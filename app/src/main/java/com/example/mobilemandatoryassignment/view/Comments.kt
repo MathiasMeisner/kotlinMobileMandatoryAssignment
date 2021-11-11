@@ -1,7 +1,10 @@
 package com.example.mobilemandatoryassignment.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.LinearLayout
+import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -36,6 +39,7 @@ class Comments : Fragment() {
         setHasOptionsMenu(true)
         mAuth = FirebaseAuth.getInstance()
         _binding = FragmentCommentsBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -97,33 +101,11 @@ class Comments : Fragment() {
             }
         }
 
-//        commentViewModel.commentLiveData.observe(viewLifecycleOwner) { comments ->
-//            binding.progressbar.visibility = View.GONE
-//            binding.recyclerView.visibility = if (comments == null) View.GONE else View.VISIBLE
-//            if (comments != null) {
-//                val adapter = CommentAdapter(comments) {  position ->
-////                    val action = FeedDirections.actionFeedToSingleMessage(position)
-////                    findNavController().navigate(action)
-//                }
-//                binding.recyclerView.layoutManager = LinearLayoutManager(activity)
-//                binding.recyclerView.adapter = adapter
-//            }
-//        }
-//
-//        commentViewModel.errorCommentLiveData.observe(viewLifecycleOwner) { errorComment ->
-//            binding.textviewSecond.text = errorComment
-//        }
-//
-//        commentViewModel.reload(commentViewModel.messageId)
-
-//        binding.swiperefresh.setOnRefreshListener {
-//            commentViewModel.reload(commentViewModel.messageId)
-//            binding.swiperefresh.isRefreshing = false
-//        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

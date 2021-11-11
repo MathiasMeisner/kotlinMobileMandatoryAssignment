@@ -4,10 +4,10 @@
     <!-- Strings used for fragments for navigation -->
     <string name="logincreate_fragment_label">First Fragment</string>
     <string name="loggedin_fragment_label">Welcome!</string>
-    <string name="feed_fragment_label">Second Fragment</string>
+    <string name="feed_fragment_label">Feed</string>
     <string name="delete_fragment_label">Second Fragment</string>
-    <string name="singlemessage_fragment_label">Second Fragment</string>
-    <string name="comments_fragment_label">Second Fragment</string>
+    <string name="singlemessage_fragment_label">Message</string>
+    <string name="comments_fragment_label">Comment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

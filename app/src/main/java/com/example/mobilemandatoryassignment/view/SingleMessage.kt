@@ -1,7 +1,10 @@
 package com.example.mobilemandatoryassignment.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.LinearLayout
+import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -35,6 +38,7 @@ class SingleMessage : Fragment() {
     private val binding1 get() = _binding1!!
 
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var mDetector: GestureDetectorCompat
     var messageId: Int = 0
 
     override fun onCreateView(
@@ -45,6 +49,14 @@ class SingleMessage : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         _binding = FragmentSinglemessageBinding.inflate(inflater, container, false)
         _binding1 = FragmentLogincreateBinding.inflate(inflater, container, false)
+
+        mDetector = GestureDetectorCompat(activity, MyGestureListener())
+        val rootView: LinearLayout = binding.root
+        rootView.setOnTouchListener { view, motionEvent ->
+            mDetector.onTouchEvent(motionEvent)
+            Log.d("APPLE", "Touch: " + motionEvent.x + " " + motionEvent.y)
+            true
+        }
         return binding.root
 
     }
@@ -125,7 +137,7 @@ class SingleMessage : Fragment() {
 
         val user = binding.user.text.toString()
 
-        binding.addCommentButton.setOnClickListener{
+        binding.addCommentButton.setOnClickListener {
             val user = binding.textviewCurrentUser.text.toString()
             val comment = binding.addCommentInput.text.toString()
             if (comment.isEmpty()) {
@@ -146,25 +158,44 @@ class SingleMessage : Fragment() {
                 findNavController().popBackStack()
             }
         }
+    }
 
-//        binding.seeComments.setOnClickListener {
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
+    private inner class MyGestureListener : GestureDetector.SimpleOnGestureListener() {
 
-
-//            findNavController().navigate(R.id.action_SingleMessage_to_comments)
-
-
-//        binding.addCommentButton.setOnClickListener {
-//            val comment: String = binding.addCommentInput.text.toString().trim()
-//            val messageId: Int = binding.messageId.text.toString().toInt()
-//            if (comment.isEmpty()) {
-//                binding.addCommentInput.error = "Please enter a comment."
-//            }
-//
-//            val addcomment = Comment(comment, messageId)
-//
-//            commentViewModel.add(addcomment)
-//        }
+        override fun onLongPress(e: MotionEvent) {
+            Log.d("APPLE", "onLongPress $e")
+            super.onLongPress(e)
         }
+
+        override fun onScroll(
+            ev1: MotionEvent, ev2: MotionEvent, distanceX: Float, distanceY: Float
+        ): Boolean {
+            Log.d("APPLE", "onScroll: $ev1 \n $ev2")
+            doIt(ev1, ev2)
+            return super.onScroll(ev1, ev2, distanceX, distanceY)
+        }
+
+        override fun onFling(
+            ev1: MotionEvent, ev2: MotionEvent, velocityX: Float, velocityY: Float
+        ): Boolean {
+            Log.d("APPLE", "onFling: $ev1 \n $ev2")
+            doIt(ev1, ev2)
+            return super.onFling(ev1, ev2, velocityX, velocityY)
+        }
+
+        private fun doIt(ev1: MotionEvent, ev2: MotionEvent) {
+            val xDiff = ev2.x - ev1.x
+            if (xDiff > 300) {
+                findNavController() // inner keyword on MyGesture Listener
+                    .navigate(R.id.action_SingleMessage_to_Feed)
+            }
+        }
+
+    }
 
 }

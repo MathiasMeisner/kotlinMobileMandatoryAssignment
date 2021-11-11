@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_SingleMessage_to_LoggedInFragment"
             app:destination="@id/LoggedInFragment" />
+        <action
+            android:id="@+id/action_SingleMessage_to_Feed"
+            app:destination="@id/Feed" />
     </fragment>
     <fragment
         android:id="@+id/comments"
@@ -73,5 +76,8 @@
         <action
             android:id="@+id/action_comments_to_LoggedInFragment"
             app:destination="@id/LoggedInFragment" />
+        <action
+            android:id="@+id/action_comments_to_SingleMessage"
+            app:destination="@id/SingleMessage" />
     </fragment>
 </navigation>
