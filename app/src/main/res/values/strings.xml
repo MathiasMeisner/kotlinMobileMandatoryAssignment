@@ -2,7 +2,7 @@
     <string name="app_name">MobileMandatoryAssignment</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="logincreate_fragment_label">First Fragment</string>
+    <string name="logincreate_fragment_label">Login</string>
     <string name="loggedin_fragment_label">Welcome!</string>
     <string name="feed_fragment_label">Feed</string>
     <string name="delete_fragment_label">Second Fragment</string>

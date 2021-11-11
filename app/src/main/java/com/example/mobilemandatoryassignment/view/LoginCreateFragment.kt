@@ -28,16 +28,14 @@ class LoginCreateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentLogincreateBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSignIn.setOnClickListener{
+        binding.buttonSignIn.setOnClickListener {
             val email = binding.emailInputField.text.toString().trim()
             val password = binding.passwordInputField.text.toString().trim()
             if (email.isEmpty()) {
@@ -51,7 +49,7 @@ class LoginCreateFragment : Fragment() {
 
             firebaseViewModel.signIn(email, password)
 
-            firebaseViewModel.user.observe(viewLifecycleOwner, Observer{
+            firebaseViewModel.user.observe(viewLifecycleOwner, Observer {
                 if (firebaseViewModel.user != null) {
                     findNavController().navigate(R.id.action_LoginCreateFragment_to_loggedInFragment)
                 }
@@ -89,10 +87,6 @@ class LoginCreateFragment : Fragment() {
                     binding.messageView.text = firebaseViewModel.message.value
                 }
             })
-        }
-
-        binding.testButton.setOnClickListener{
-            findNavController().navigate(R.id.action_LoginCreateFragment_to_loggedInFragment)
         }
     }
 

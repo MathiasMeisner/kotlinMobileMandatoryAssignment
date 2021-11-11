@@ -14,8 +14,6 @@ import com.example.mobilemandatoryassignment.databinding.FragmentLogincreateBind
 import com.example.mobilemandatoryassignment.databinding.FragmentSinglemessageBinding
 import com.example.mobilemandatoryassignment.model.Comment
 import com.example.mobilemandatoryassignment.model.CommentAdapter
-import com.example.mobilemandatoryassignment.model.Message
-import com.example.mobilemandatoryassignment.model.MessageAdapter
 import com.example.mobilemandatoryassignment.viewmodel.CommentViewModel
 import com.example.mobilemandatoryassignment.viewmodel.FirebaseViewModel
 import com.example.mobilemandatoryassignment.viewmodel.MessageViewModel
@@ -35,7 +33,6 @@ class SingleMessage : Fragment() {
     private var firebaseViewModel: FirebaseViewModel = FirebaseViewModel()
 
     private val binding get() = _binding!!
-    private val binding1 get() = _binding1!!
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDetector: GestureDetectorCompat
@@ -58,7 +55,6 @@ class SingleMessage : Fragment() {
             true
         }
         return binding.root
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -142,10 +138,12 @@ class SingleMessage : Fragment() {
             val comment = binding.addCommentInput.text.toString()
             if (comment.isEmpty()) {
                 binding.addCommentInput.error = "Please enter a comment."
-            }
-            val addcomment = Comment(messageId, messageId, comment, user)
+            } else {
+                val addcomment = Comment(messageId, messageId, comment, user)
 
-            commentViewModel.add(addcomment)
+                commentViewModel.add(addcomment)
+                binding.addCommentInput.setText("")
+            }
         }
 
         binding.deleteMessage.setOnClickListener {
@@ -195,7 +193,5 @@ class SingleMessage : Fragment() {
                     .navigate(R.id.action_SingleMessage_to_Feed)
             }
         }
-
     }
-
 }

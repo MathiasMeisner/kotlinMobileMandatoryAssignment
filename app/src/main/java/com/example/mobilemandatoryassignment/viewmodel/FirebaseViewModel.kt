@@ -12,7 +12,7 @@ class FirebaseViewModel {
     val message: MutableLiveData<String> = MutableLiveData()
     val user: MutableLiveData<FirebaseUser?> = MutableLiveData()
 
-    fun signIn( email: String,password: String) {
+    fun signIn(email: String, password: String) {
         mAuth = Firebase.auth
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
@@ -20,9 +20,11 @@ class FirebaseViewModel {
                 user.value = mAuth.currentUser
             } else {
                 message.value = task.exception?.message
+                Log.d("Apple", "Login failed.")
             }
         }
     }
+
     fun createUser(email: String, password: String) {
         mAuth = Firebase.auth
 
@@ -31,14 +33,13 @@ class FirebaseViewModel {
                 user.value = mAuth.currentUser
             } else {
                 message.value = task.exception?.message
+                Log.d("Apple", "Failed creating user.")
             }
         }
     }
 
-    fun signOut(){
-        Log.d("apple", "signout")
+    fun signOut() {
         Firebase.auth.signOut()
         user.value = null
     }
-
 }

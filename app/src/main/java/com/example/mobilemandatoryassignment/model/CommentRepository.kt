@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.example.mobilemandatoryassignment.view.SingleMessage
 
-class CommentRepository  {
+class CommentRepository {
     private val url = "https://anbo-restmessages.azurewebsites.net/api/messages/"
 
     private val commentService: CommentService
@@ -85,6 +85,4 @@ class CommentRepository  {
             }
         })
     }
-
-
 }

@@ -73,12 +73,10 @@ class LoggedInFragment : Fragment() {
             messageViewModel.add(addmessage)
             findNavController().navigate(R.id.action_LoggedInFragment_to_Feed)
         }
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

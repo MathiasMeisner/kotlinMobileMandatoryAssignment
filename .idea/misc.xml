@@ -5,12 +5,17 @@
       <map>
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/add_message_border.xml" value="0.21770833333333334" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/custom_rounded_corners.xml" value="0.2916666666666667" />
+        <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/deletebutton.xml" value="0.22135416666666666" />
+        <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.22135416666666666" />
+        <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.27076923076923076" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/ic_icon.xml" value="0.2861111111111111" />
+        <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/ic_send.xml" value="0.27076923076923076" />
+        <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/message_border.xml" value="0.26871794871794874" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/drawable/singlemessage_border.xml" value="0.22135416666666666" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/add_message_border.xml" value="0.2015625" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/content_main.xml" value="0.2957427536231884" />
-        <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/fragment_comments.xml" value="0.28306159420289856" />
+        <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/fragment_comments.xml" value="0.25" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/fragment_delete.xml" value="0.25" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/fragment_feed.xml" value="0.2957427536231884" />
         <entry key="..\:/Code/4. semester/MobileMandatoryAssignment-master/app/src/main/res/layout/fragment_loggedin.xml" value="0.28306159420289856" />

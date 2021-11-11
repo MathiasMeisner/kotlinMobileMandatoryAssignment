@@ -3,17 +3,11 @@ package com.example.mobilemandatoryassignment.view
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.LinearLayout
-import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobilemandatoryassignment.R
 import com.example.mobilemandatoryassignment.databinding.FragmentCommentsBinding
-import com.example.mobilemandatoryassignment.databinding.FragmentLogincreateBinding
-import com.example.mobilemandatoryassignment.databinding.FragmentSinglemessageBinding
-import com.example.mobilemandatoryassignment.model.CommentAdapter
 import com.example.mobilemandatoryassignment.viewmodel.CommentViewModel
 import com.example.mobilemandatoryassignment.viewmodel.FirebaseViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -100,12 +94,10 @@ class Comments : Fragment() {
                 findNavController().popBackStack()
             }
         }
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

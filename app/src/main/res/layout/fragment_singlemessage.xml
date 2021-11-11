@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,7 +8,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -19,22 +20,21 @@
             android:id="@+id/textview_currentUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="10dp" />
 
         <TextView
-            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="Message, id "
-            android:layout_marginStart="10dp" />
+            android:visibility="invisible" />
 
         <TextView
-            android:visibility="invisible"
             android:id="@+id/id_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Id" />
-
+            android:hint="Id"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -43,31 +43,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"/>
+        android:layout_marginEnd="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/content"
             android:layout_width="0dp"
-            android:layout_weight="4"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:padding="14dp"
+            android:layout_weight="5"
             android:background="@drawable/singlemessage_border"
-            android:hint="Content" />
+            android:hint="Content"
+            android:padding="14dp" />
 
         <Button
             android:id="@+id/delete_message"
+            style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/custom_rounded_corners"
-            android:text="D" />
+            android:layout_weight="1"
+            android:backgroundTint="@color/red"
+            android:padding="12dp"
+            app:icon="@drawable/ic_baseline_delete_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:shapeAppearanceOverlay="@style/DeleteButton" />
+
 
     </LinearLayout>
 
@@ -79,37 +85,36 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="By user "
             android:layout_marginStart="10dp"
-            android:textStyle="italic"/>
+            android:text="By user "
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="italic"
             android:hint="User"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textStyle="italic" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Comments: "
             android:layout_marginStart="10dp"
-            android:textStyle="italic"/>
+            android:text="Comments: "
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/totalComments"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -128,47 +133,54 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp">
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/singlemessage_border" />
+            android:background="@drawable/message_border"
+            android:paddingLeft="10dp" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <EditText
-        android:id="@+id/add_comment_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:padding="14dp"
-        android:background="@drawable/singlemessage_border"
-        android:textSize="15dp"
-        android:hint="Add a comment..." />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/add_comment_button"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/add_comment_input"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/custom_rounded_corners"
-            android:text="Add comment" />
+            android:layout_weight="5"
+            android:background="@drawable/message_border"
+            android:hint="Add a comment..."
+            android:padding="14dp"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/add_comment_button"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:elevation="0dp"
+            android:padding="12dp"
+            android:stateListAnimator="@null"
+            app:icon="@drawable/ic_send"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/purple_500"
+            app:shapeAppearanceOverlay="@style/DeleteButton" />
 
     </LinearLayout>
-
-
 
 </LinearLayout>

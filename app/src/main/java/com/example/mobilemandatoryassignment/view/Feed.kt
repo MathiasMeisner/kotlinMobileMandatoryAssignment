@@ -5,7 +5,6 @@ import android.text.Layout
 import android.util.Log
 import android.view.*
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -52,9 +51,7 @@ class Feed : Fragment() {
             Log.d("APPLE", "Touch: " + motionEvent.x + " " + motionEvent.y)
             true
         }
-
         return binding.root
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -106,7 +103,6 @@ class Feed : Fragment() {
             messageViewModel.reload()
             binding.swiperefresh.isRefreshing = false
         }
-
     }
 
     override fun onDestroyView() {
@@ -144,7 +140,5 @@ class Feed : Fragment() {
                     .navigate(R.id.action_Feed_to_LoggedInFragment)
             }
         }
-
     }
-
 }
