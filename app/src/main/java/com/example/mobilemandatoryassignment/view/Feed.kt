@@ -2,7 +2,10 @@ package com.example.mobilemandatoryassignment.view
 
 import android.os.Bundle
 import android.text.Layout
+import android.util.Log
 import android.view.*
+import android.widget.LinearLayout
+import androidx.core.view.GestureDetectorCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -90,13 +93,12 @@ class Feed : Fragment() {
             binding.swiperefresh.isRefreshing = false
         }
 
-//        binding.buttonSecond.setOnClickListener {
-//            findNavController().popBackStack()
-//        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
